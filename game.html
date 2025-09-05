@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Game Glory Hunters - Sedang Perbaikan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #4f46e5 0%, #1e40af 50%, #7c3aed 100%);
+      color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      transition: background 1.5s ease;
+    }
+    .maintenance-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px rgba(79, 70, 229, 0.4);
+      padding: 3rem 2rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      animation: bounceIn 1s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .repair-image {
+      max-width: 200px;
+      margin: 0 auto 2rem auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .icon-blinking {
+      animation: blink 1.5s infinite;
+      display: inline-block;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .back-button {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(45deg, #4f46e5, #7c3aed);
+      color: #f9fafb;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .back-button:hover {
+      transform: scale(1.1);
+    }
+    .positive-message {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #dbeafe;
+      animation: fadeIn 1.5s ease 0.5s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Mobile responsiveness */
+    @media (max-width: 640px) {
+      .maintenance-card {
+        width: 95%;
+        padding: 2rem 1.5rem;
+      }
+      .repair-image {
+        max-width: 150px;
+      }
+      .icon-blinking {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="maintenance-card">
+    <div class="repair-image">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/96a567cb-aae7-4a05-bd5e-e1cdf9686d90.png" alt="Cute cartoon mechanic character hammering on gears with sparks, illustrating ongoing repairs and maintenance work" />
+    </div>
+    <div class="icon-blinking">🔧⚙️🔨</div>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Mini Game Sedang Diperbaiki!</h1>
+    <p class="text-xl md:text-l font-medium mb-6">Tenang Glory Hunters, tim developer sedang bekerja keras untuk bikin game lebih seru!</p>
+    <div class="positive-message">
+      Tidak lama lagi, tantangan epik akan siap menyapa. Tetap semangat dan jaga spirit team kita! Glory is coming soon! 🚀
+    </div>
+    <a href="index.html" class="back-button" onclick="history.back()">Kembali ke Portal Glory</a>
+  </div>
+</body>
+</html>
+</content>
+</create_file>
