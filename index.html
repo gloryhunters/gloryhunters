@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glory Hunters 7G - Ultimate Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #120e43 0%, #3b5998 50%, #4f46e5 100%);
+      color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      transition: background 2s ease;
+    }
+    /* Loading screen with dynamic effects */
+    .loading {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle, #3b5998, #0f172a);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      z-index: 9999;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.02); opacity: 0.9; }
+    }
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* Input section with enhanced glassmorphism */
+    .input-section {
+      display: none;
+      background: rgba(67, 56, 202, 0.25);
+      backdrop-filter: blur(25px);
+      padding: 3.5rem 2.5rem;
+      border-radius: 28px;
+      box-shadow: 0 25px 50px rgba(79, 70, 229, 0.4);
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      animation: bounceIn 0.9s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    /* Welcome section with floating elements */
+    .welcome-section {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 120px;
+      animation: floatUp 1.2s ease;
+      position: relative;
+    }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Hamburger menu with cute design */
+    .menu-strip {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 45px;
+      height: 32px;
+      cursor: pointer;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .menu-strip:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+    .strip {
+      height: 5px;
+      background: #f9fafb;
+      border-radius: 3px;
+      transition: all 0.4s ease;
+    }
+    .menu-open .strip:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+    .menu-open .strip:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-open .strip:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+    /* Dropdown with custom animations */
+    nav {
+      position: fixed;
+      top: 90px;
+      right: 30px;
+      background: rgba(67, 56, 202, 0.95);
+      backdrop-filter: blur(25px);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(79, 70, 229, 0.5);
+      display: none;
+      flex-direction: column;
+      min-width: 220px;
+      z-index: 9999;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: navFly 0.5s ease;
+    }
+    @keyframes navFly {
+      from { opacity: 0; transform: translateY(-20px) scale(0.9); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    nav.show {
+      display: flex;
+    }
+    nav a {
+      padding: 1.2rem 1.5rem;
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(79, 70, 229, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    nav a:last-child {
+      border-bottom: none;
+    }
+    nav a:hover {
+      background: linear-gradient(45deg, #4f46e5, #7c3aed);
+      color: #f9fafb;
+      transform: translateX(8px);
+    }
+    nav a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      border-radius: 50%;
+    }
+    /* Card with cute icons */
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      padding: 3rem;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+      max-width: 650px;
+      width: 90%;
+      margin-bottom: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: glowIn 1.4s ease;
+    }
+    @keyframes glowIn {
+      from { opacity: 0; box-shadow: 0 0 0 rgba(59, 130, 246, 0); }
+      to { opacity: 1; box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3); }
+    }
+    .hero-image {
+      max-width: 280px;
+      margin: 0 auto 2rem auto;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+    .icon-list {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+      width: 100%;
+    }
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .icon:hover {
+      transform: scale(1.2);
+    }
+    .positive-words {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.7;
+      color: #dbeafe;
+      animation: textFade 1.7s ease 0.8s both;
+    }
+    @keyframes textFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Mobile-specific tweaks for HP */
+    @media (max-width: 640px) {
+      .input-section {
+        width: 95%;
+        padding: 2.5rem 2rem;
+      }
+      .welcome-section {
+        padding-top: 100px;
+      }
+      .menu-strip {
+        top: 25px;
+        right: 25px;
+        width: 40px;
+        height: 28px;
+      }
+      nav {
+        min-width: 200px;
+        top: 75px;
+        right: 25px;
+      }
+      .card {
+        width: 95%;
+        padding: 2.5rem;
+      }
+      .hero-image {
+        max-width: 230px;
+      }
+      .icon-list {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .icon {
+        width: 50px;
+        height: 50px;
+        margin: 0.5rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .menu-strip {
+        top: 20px;
+        right: 20px;
+      }
+      nav {
+        top: 70px;
+        right: 20px;
+      }
+      .card {
+        padding: 2rem;
+      }
+      .positive-words {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading" class="loading">
+    <div class="hero-image mb-5">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37d33d16-498a-401c-accb-927d74d5c295.png" alt="Glowing trophy with sparkles and cute cartoon medal around it, symbolizing fun victory and cheerful celebration for Glory Hunters" />
+    </div>
+    <div class="text-2xl font-bold mb-3">Memuat Dunia Glory...</div>
+    <div class="text-lg font-medium">Tunggu sebentar ya [SENYUM CERIA DENGAN WINK]</div>
+  </div>
+
+  <!-- Input Section -->
+  <div id="inputSection" class="input-section">
+    <div class="hero-image mb-5">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c2784848-c7b7-4e3c-9534-10c0d4017b47.png" alt="Cute animated heroes waving flags with big smiles and team badges, expressing welcome and excitement for new members of Glory Hunters" />
+    </div>
+    <h1 class="text-3xl font-extrabold text-white mb-5">Portal Epic Glory Hunters 7G</h1>
+    <p class="text-dbeafe mb-7 text-xl">Masukkan nama panggilanmu untuk bergabung dalam petualangan seru!</p>
+    <form id="nameForm">
+      <input type="text" id="nickname" placeholder="Nama panggilanmu (contoh: Abid atau Benzema)" class="w-full p-4 mb-5 border-3 border-blue-300 rounded-xl bg-white text-blue-900 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-300 text-lg" required />
+      <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl hover:from-purple-600 hover:to-pink-600 transition duration-300 shadow-xl text-lg">Mulai Petualangan Glory!</button>
+    </form>
+    <div id="errorMsg" class="mt-5 text-yellow-300 font-semibold hidden">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/25cb3189-51ac-4140-989f-994c066ac685.png" alt="Alert icon with a cute exclamation mark and round eyes, indicating a gentle warning or message" class="inline-block mr-2" />
+      Error pesan akan muncul di sini!
+    </div>
+  </div>
+
+  <!-- Welcome Section -->
+  <div id="welcomeSection" class="welcome-section">
+    <div class="menu-strip" id="menuStrip" onclick="toggleMenu()" style="display: none;">
+      <div class="strip"></div>
+      <div class="strip"></div>
+      <div class="strip"></div>
+    </div>
+    <nav id="navMenu">
+      <a href="game.html">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e492405f-9406-4023-bbfd-d9be6feba8a0.png" alt="Cute game controller icon with playful buttons and joystick, representing fun mini games for Glory Hunters" />
+        Mini Game - Tantangan Seru!
+      </a>
+      <a href="kegiatan.html">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9039a429-6884-47a9-b4b2-5c02c4323b2b.png" alt="Friendly group handshake icon with happy faces, symbolizing team activities and community spirit in class 7G" />
+        Kegiatan Kami - Spirit Tim
+      </a>
+      <a href="dashboardAdmin.html" id="adminLink" style="display: none;">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f17dd165-ddc9-41b9-8d39-fd38899de8fa.png" alt="Star badge with crown, indicating special admin access with cheerful authority for Glory Hunters" />
+        Dashboard Admin
+      </a>
+    </nav>
+    <div class="card">
+      <div class="hero-image mb-5">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/85cc99b2-cabc-4d65-aeec-ec6ccb53d81c.png" alt="Cheerful team mascot high-fiving with confetti and party hats, celebrating victory and joy with bright colors and triumphant expressions" />
+      </div>
+      <h2 id="greeting" class="text-3xl md:text-5xl font-extrabold text-white mb-5"></h2>
+      <div class="icon-list mb-4">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/84e02be8-f388-4897-98f7-97ba4369d025.png" alt="Shiny gold star icon with sparkles, representing achievement and excellence for Glory Hunters members" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ab952d6e-1549-4c9d-9044-8d9109719ba6.png" alt="Cute heart with wings and smiley face, symbolizing love and passion for the team spirit in class 7G" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5f650a8-0519-4b8c-b83d-2b6168de88bf.png" alt="Happy trophy with thumbs up, celebrating victories and positive energy among Glory Hunters" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/406b3273-d2ed-4fcf-899e-ce47f92add81.png" alt="Magic wand with glitter, denoting fun spells and creative adventures for the group" class="icon" />
+      </div>
+      <p class="positive-words">
+        Welcome to Glory Hunters 7G, di mana kita semua adalah pahlawan legenda! setiap anggota adalah kekuatan spesial yang membuat tim kita tak terkalahkan. Bersama-sama, kita bangun impian, kita juara dalam setiap tantangan, dan kita ciptakan kenangan tak terlupakan. Glory is ours! Tetap semangat, tetap solid, dan teruslah berprestasi tinggi!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const validNames = [
+      "Abid", "Benzema", "Dani", "Muna", "Anggi", "Fadhil", "Fahmi", "Farah",
+      "Mikayla", "Tania", "Fatimah", "Revan", "Raffa", "Sekar", "Azka", "Fariz",
+      "Sindi", "Nabila", "Nabil", "Rifqi", "Ridho", "Nurul", "Arul", "Nana",
+      "Vivi", "Najja", "Dimas", "Nilmar", "Salsa", "Naila", "Navira", "Hanif"
+    ];
+
+    const loadingEl = document.getElementById('loading');
+    const inputSection = document.getElementById('inputSection');
+    const welcomeSection = document.getElementById('welcomeSection');
+    const nameForm = document.getElementById('nameForm');
+    const nicknameInput = document.getElementById('nickname');
+    const errorMsg = document.getElementById('errorMsg');
+    const greeting = document.getElementById('greeting');
+    const menuStrip = document.getElementById('menuStrip');
+    const navMenu = document.getElementById('navMenu');
+    const adminLink = document.getElementById('adminLink');
+
+    // Enhanced loading
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        loadingEl.classList.add('hidden');
+        setTimeout(() => {
+          loadingEl.style.display = 'none';
+          inputSection.style.display = 'block';
+          nicknameInput.focus();
+        }, 600);
+      }, 2500);
+    });
+
+    // Form submit with cute feedback
+    nameForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = nicknameInput.value.trim();
+      if (!name) {
+        errorMsg.innerHTML = '<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6e942961-b41d-4096-9893-9195659f2433.png" alt="Sad face icon with droopy eyes, indicating missed opportunity for joining the fun" class="inline-block mr-2" /> Hei, tulis nama dulu agar bisa join petualangan!';
+        errorMsg.classList.remove('hidden');
+        setTimeout(() => errorMsg.classList.add('hidden'), 3500);
+        return;
+      }
+      const nameLower = name.toLowerCase();
+      if (nameLower === 'admin01') {
+        greeting.textContent = `Wahai Admin01, portal rahasia terbuka untukmu! Salam juara!`;
+        adminLink.style.display = 'block';
+        inputSection.style.display = 'none';
+        welcomeSection.style.display = 'flex';
+        menuStrip.style.display = 'flex';
+        return;
+      }
+      const foundName = validNames.find(n => n.toLowerCase() === nameLower);
+      if (foundName) {
+        greeting.textContent = `Yey, ${foundName}! Kamu sekarang Glory Hunter sejati!`;
+        adminLink.style.display = 'none';
+        inputSection.style.display = 'none';
+        welcomeSection.style.display = 'flex';
+        menuStrip.style.display = 'flex';
+      } else {
+        errorMsg.innerHTML = '<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f1ef4eb0-bc98-40e8-abe3-a25d141bd195.png" alt="Thinking face icon with tilted head and question mark, representing curiosity about not being recognized" class="inline-block mr-2" /> Hmm, ${name}, nama ini belum ada di daftar Glory, tapi tetap awesome! Coba lagi atau chat admin ya.';
+        errorMsg.classList.remove('hidden');
+        setTimeout(() => errorMsg.classList.add('hidden'), 5500);
+      }
+    });
+
+    // Menu toggle with fun animation
+    function toggleMenu() {
+      menuStrip.classList.toggle('menu-open');
+      navMenu.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
+</content>
+</create_file>
