@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Struktur Kelas 7G - Sedang Dalam Pengerjaan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e3a8a, #4338ca);
+      color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      max-width: 520px;
+      width: 90vw;
+      background: rgba(255 255 255 / 0.08);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-radius: 32px;
+      padding: 3.5rem 3rem 4rem;
+      box-shadow:
+        0 8px 32px rgba(67, 56, 202, 0.4),
+        inset 0 0 0 1px rgba(255 255 255 / 0.15);
+      animation: fadeInUp 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Icon */
+    .icon {
+      font-size: 7rem;
+      color: #a5b4fc;
+      margin-bottom: 1.75rem;
+      animation: pulseGlow 3.5s ease-in-out infinite;
+      text-shadow:
+        0 0 12px #a5b4fc,
+        0 0 30px #6366f1;
+      user-select: none;
+    }
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow:
+          0 0 12px #a5b4fc,
+          0 0 30px #6366f1;
+      }
+      50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+        text-shadow:
+          0 0 18px #818cf8,
+          0 0 40px #818cf8;
+      }
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      color: #e0e7ff;
+      text-shadow: 0 0 14px #6366f1;
+      letter-spacing: 0.06em;
+      user-select: text;
+      line-height: 1.1;
+    }
+
+    /* Paragraph */
+    p {
+      font-size: 1.3rem;
+      color: #c7d2fe;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      user-select: text;
+      font-weight: 500;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #6366f1, #4f46e5);
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1rem 3rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow:
+        0 10px 25px rgba(99, 102, 241, 0.6);
+      transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+      user-select: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      outline-offset: 4px;
+    }
+    .btn:hover, .btn:focus {
+      background: linear-gradient(45deg, #4f46e5, #4338ca);
+      box-shadow:
+        0 14px 35px rgba(79, 70, 229, 0.85);
+      transform: scale(1.07);
+      outline: none;
+      z-index: 10;
+    }
+    .btn:active {
+      transform: scale(0.97);
+      box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.7);
+    }
+
+    /* Floating particles container */
+    .particles {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      background: rgba(255 255 255 / 0.12);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 5px rgba(255 255 255 / 0.3));
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      opacity: 0.75;
+      will-change: transform, opacity;
+      mix-blend-mode: screen;
+    }
+
+    /* Different sizes and animations for particles */
+    .particle.small {
+      width: 7px;
+      height: 7px;
+      animation-name: floatUpDown;
+      animation-duration: 7s;
+    }
+    .particle.medium {
+      width: 11px;
+      height: 11px;
+      animation-name: floatUpDown;
+      animation-duration: 9s;
+    }
+    .particle.large {
+      width: 15px;
+      height: 15px;
+      animation-name: floatUpDown;
+      animation-duration: 12s;
+    }
+
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.75;
+      }
+      50% {
+        transform: translateY(-25px) translateX(12px);
+        opacity: 0.35;
+      }
+    }
+
+    /* Footer text */
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.95rem;
+      color: #a5b4fc;
+      user-select: none;
+      text-shadow: 0 0 6px #6366f1;
+      letter-spacing: 0.05em;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 0.85rem 2.5rem;
+      }
+      .icon {
+        font-size: 5.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="main-title" aria-describedby="main-desc">
+    <div class="icon" aria-hidden="true" aria-label="Ikon alat perbaikan">🛠️</div>
+    <h1 id="main-title">Struktur Kelas 7G<br>Sedang Dalam Pengerjaan</h1>
+    <p id="main-desc">Halaman Struktur Kelas 7G sedang dalam proses pengembangan.<br>Mohon bersabar, kami akan segera menghadirkan fitur yang informatif dan menarik!</p>
+    <a href="index.html" class="btn" role="button" aria-label="Kembali ke portal utama">Kembali ke Portal Utama</a>
+    <footer>© 2024 Glory Hunters 7G. All rights reserved.</footer>
+  </div>
+
+  <div class="particles" aria-hidden="true"></div>
+
+  <script>
+    // Floating particles for subtle dynamic background
+    const particlesContainer = document.querySelector('.particles');
+    const particleCount = 30;
+
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    for(let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      // Random size class
+      const sizeClass = ['small', 'medium', 'large'][Math.floor(Math.random() * 3)];
+      particle.classList.add(sizeClass);
+
+      // Random initial position
+      particle.style.top = `${randomRange(0, 100)}%`;
+      particle.style.left = `${randomRange(0, 100)}%`;
+
+      // Random animation delay and duration variation
+      particle.style.animationDelay = `${randomRange(0, 6)}s`;
+      particle.style.animationDuration = `${randomRange(7, 13)}s`;
+
+      // Random opacity variation
+      particle.style.opacity = randomRange(0.3, 0.75);
+
+      particlesContainer.appendChild(particle);
+    }
+  </script>
+</body>
+  </html>
+  
