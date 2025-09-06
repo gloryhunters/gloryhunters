@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Glory Hunters - Sedang Dalam Pengerjaan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif, sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #3b82f6);
+      color: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.5);
+      animation: fadeIn 1.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .icon {
+      font-size: 6rem;
+      color: #a5b4fc;
+      margin-bottom: 1.5rem;
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #e0e7ff;
+      text-shadow: 0 0 10px #6366f1;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #c7d2fe;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      background: #6366f1;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 8px 15px rgba(99, 102, 241, 0.4);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover {
+      background: #4f46e5;
+      box-shadow: 0 12px 20px rgba(79, 70, 229, 0.6);
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #a5b4fc;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="main-title" aria-describedby="main-desc">
+    <div class="icon" aria-hidden="true">🛠️</div>
+    <h1 id="main-title">Sedang Dalam Pengerjaan</h1>
+    <p id="main-desc">Halaman AI Glory Hunters sedang dalam proses pengembangan.<br />Kami akan segera kembali dengan fitur chatbot yang keren dan pintar!</p>
+    <a href="index.html" class="btn" role="button" aria-label="Kembali ke portal utama">Kembali ke Portal Utama</a>
+    <footer>© 2024 Glory Hunters 7G. All rights reserved.</footer>
+  </div>
+</body>
+</html>
