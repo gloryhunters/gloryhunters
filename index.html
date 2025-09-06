@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Glory Hunters 7G - Ultimate Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -123,7 +123,7 @@
       box-shadow: 0 15px 40px rgba(79, 70, 229, 0.5);
       display: none;
       flex-direction: column;
-      min-width: 220px;
+      min-width: 260px;
       z-index: 9999;
       border: 1px solid rgba(255, 255, 255, 0.2);
       animation: navFly 0.5s ease;
@@ -227,7 +227,7 @@
         height: 28px;
       }
       nav {
-        min-width: 200px;
+        min-width: 220px;
         top: 75px;
         right: 25px;
       }
@@ -270,7 +270,16 @@
   <!-- Loading Screen -->
   <div id="loading" class="loading">
     <div class="hero-image mb-5">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37d33d16-498a-401c-accb-927d74d5c295.png" alt="Glowing trophy with sparkles and cute cartoon medal around it, symbolizing fun victory and cheerful celebration for Glory Hunters" />
+      <!-- Logo from me: a stylized blue shield with a star and sword -->
+      <svg width="150" height="150" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 5px #4f46e5); border-radius: 50%; background: #1e40af;">
+        <path d="M32 2L12 10v14c0 14 10 26 20 30 10-4 20-16 20-30V10L32 2z" fill="#4f46e5"/>
+        <path d="M32 6L18 12v12c0 10 8 20 14 22 6-2 14-12 14-22V12L32 6z" fill="#6366f1"/>
+        <path d="M32 14l-4 10h8l-4-10z" fill="#a5b4fc"/>
+        <path d="M32 22l-2 5h4l-2-5z" fill="#c7d2fe"/>
+        <circle cx="32" cy="32" r="4" fill="#e0e7ff"/>
+        <rect x="30" y="36" width="4" height="12" fill="#a5b4fc" />
+        <rect x="28" y="48" width="8" height="4" fill="#6366f1" />
+      </svg>
     </div>
     <div class="text-2xl font-bold mb-3">Memuat Dunia Glory...</div>
     <div class="text-lg font-medium">Tunggu sebentar ya [SENYUM CERIA DENGAN WINK]</div>
@@ -279,16 +288,16 @@
   <!-- Input Section -->
   <div id="inputSection" class="input-section">
     <div class="hero-image mb-5">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c2784848-c7b7-4e3c-9534-10c0d4017b47.png" alt="Cute animated heroes waving flags with big smiles and team badges, expressing welcome and excitement for new members of Glory Hunters" />
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1fb32984-8a94-451a-bc70-709f2fa7daa7.png" alt="Cute animated heroes waving flags with big smiles and team badges, expressing welcome and excitement for new members of Glory Hunters" />
     </div>
     <h1 class="text-3xl font-extrabold text-white mb-5">Portal Epic Glory Hunters 7G</h1>
     <p class="text-dbeafe mb-7 text-xl">Masukkan nama panggilanmu untuk bergabung dalam petualangan seru!</p>
     <form id="nameForm">
       <input type="text" id="nickname" placeholder="Nama panggilanmu (contoh: Abid atau Benzema)" class="w-full p-4 mb-5 border-3 border-blue-300 rounded-xl bg-white text-blue-900 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-300 text-lg" required />
-      <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl hover:from-purple-600 hover:to-pink-600 transition duration-300 shadow-xl text-lg">Mulai Petualangan Glory!</button>
+      <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-700 text-white font-bold rounded-xl hover:from-purple-600 hover:to-blue-800 transition duration-300 shadow-xl text-lg">Mulai Petualangan Glory!</button>
     </form>
     <div id="errorMsg" class="mt-5 text-yellow-300 font-semibold hidden">
-      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/25cb3189-51ac-4140-989f-994c066ac685.png" alt="Alert icon with a cute exclamation mark and round eyes, indicating a gentle warning or message" class="inline-block mr-2" />
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ad406c99-8a87-481f-ae3c-eb28ae516bdd.png" alt="Alert icon with a cute exclamation mark and round eyes, indicating a gentle warning or message" class="inline-block mr-2" />
       Error pesan akan muncul di sini!
     </div>
   </div>
@@ -302,28 +311,40 @@
     </div>
     <nav id="navMenu">
       <a href="game.html">
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e492405f-9406-4023-bbfd-d9be6feba8a0.png" alt="Cute game controller icon with playful buttons and joystick, representing fun mini games for Glory Hunters" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/270729a6-dc0e-4a59-a102-80d87452a141.png" alt="Cute game controller icon with playful buttons and joystick, representing fun mini games for Glory Hunters" />
         Mini Game - Tantangan Seru!
       </a>
       <a href="kegiatan.html">
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9039a429-6884-47a9-b4b2-5c02c4323b2b.png" alt="Friendly group handshake icon with happy faces, symbolizing team activities and community spirit in class 7G" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6354cfd6-aeec-4b65-80d2-c1473fb62ccb.png" alt="Friendly group handshake icon with happy faces, symbolizing team activities and community spirit in class 7G" />
         Kegiatan Kami - Spirit Tim
       </a>
+      <a href="struktur.html">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fcbbbe08-3d9c-4d98-b301-a9d54d0b0a1c.png" alt="Icon representing Struktur Kelas with building blocks and team structure" />
+        Struktur Kelas
+      </a>
+      <a href="ai.html">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e703fe0c-cae6-4689-8205-3c2b677b2d9c.png" alt="AI Glory Hunters icon with futuristic robot face and glowing eyes" />
+        AI Glory Hunters
+      </a>
       <a href="dashboardAdmin.html" id="adminLink" style="display: none;">
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f17dd165-ddc9-41b9-8d39-fd38899de8fa.png" alt="Star badge with crown, indicating special admin access with cheerful authority for Glory Hunters" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e40b30c0-2b6d-443d-8d8a-fe6ddafc526b.png" alt="Star badge with crown, indicating special admin access with cheerful authority for Glory Hunters" />
         Dashboard Admin
+      </a>
+      <a href="developer.html" id="developerLink" style="display: none;">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d25c4016-dbbc-4b7d-b8f8-817a1d4b3a8c.png" alt="Developer icon with code brackets and gear, representing developer access" />
+        Developer Portal
       </a>
     </nav>
     <div class="card">
       <div class="hero-image mb-5">
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/85cc99b2-cabc-4d65-aeec-ec6ccb53d81c.png" alt="Cheerful team mascot high-fiving with confetti and party hats, celebrating victory and joy with bright colors and triumphant expressions" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/353e82ca-3860-475e-8e18-447359d33b64.png" alt="Cheerful team mascot high-fiving with confetti and party hats, celebrating victory and joy with bright colors and triumphant expressions" />
       </div>
       <h2 id="greeting" class="text-3xl md:text-5xl font-extrabold text-white mb-5"></h2>
       <div class="icon-list mb-4">
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/84e02be8-f388-4897-98f7-97ba4369d025.png" alt="Shiny gold star icon with sparkles, representing achievement and excellence for Glory Hunters members" class="icon" />
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ab952d6e-1549-4c9d-9044-8d9109719ba6.png" alt="Cute heart with wings and smiley face, symbolizing love and passion for the team spirit in class 7G" class="icon" />
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5f650a8-0519-4b8c-b83d-2b6168de88bf.png" alt="Happy trophy with thumbs up, celebrating victories and positive energy among Glory Hunters" class="icon" />
-        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/406b3273-d2ed-4fcf-899e-ce47f92add81.png" alt="Magic wand with glitter, denoting fun spells and creative adventures for the group" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/97d0905a-22a0-44bc-a71e-51befe3b3941.png" alt="Shiny gold star icon with sparkles, representing achievement and excellence for Glory Hunters members" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/616379a2-97e4-4511-9aba-ea97ac93aa89.png" alt="Cute heart with wings and smiley face, symbolizing love and passion for the team spirit in class 7G" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8c72831a-a668-4c60-9cb6-fd67cfaf776e.png" alt="Happy trophy with thumbs up, celebrating victories and positive energy among Glory Hunters" class="icon" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cb8cb692-7df8-44ce-b8dd-872cc51670ab.png" alt="Magic wand with glitter, denoting fun spells and creative adventures for the group" class="icon" />
       </div>
       <p class="positive-words">
         Welcome to Glory Hunters 7G, di mana kita semua adalah pahlawan legenda! setiap anggota adalah kekuatan spesial yang membuat tim kita tak terkalahkan. Bersama-sama, kita bangun impian, kita juara dalam setiap tantangan, dan kita ciptakan kenangan tak terlupakan. Glory is ours! Tetap semangat, tetap solid, dan teruslah berprestasi tinggi!
@@ -349,6 +370,7 @@
     const menuStrip = document.getElementById('menuStrip');
     const navMenu = document.getElementById('navMenu');
     const adminLink = document.getElementById('adminLink');
+    const developerLink = document.getElementById('developerLink');
 
     // Enhanced loading
     window.addEventListener('load', () => {
@@ -367,7 +389,7 @@
       e.preventDefault();
       const name = nicknameInput.value.trim();
       if (!name) {
-        errorMsg.innerHTML = '<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6e942961-b41d-4096-9893-9195659f2433.png" alt="Sad face icon with droopy eyes, indicating missed opportunity for joining the fun" class="inline-block mr-2" /> Hei, tulis nama dulu agar bisa join petualangan!';
+        errorMsg.innerHTML = '<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/014ff94a-f492-44b4-9121-e4887e108478.png" alt="Sad face icon with droopy eyes, indicating missed opportunity for joining the fun" class="inline-block mr-2" /> Hei, tulis nama dulu agar bisa join petualangan!';
         errorMsg.classList.remove('hidden');
         setTimeout(() => errorMsg.classList.add('hidden'), 3500);
         return;
@@ -381,15 +403,24 @@
         menuStrip.style.display = 'flex';
         return;
       }
+      if (nameLower === 'developer') {
+        greeting.textContent = `Selamat datang, Developer! Kamu adalah pembuat dunia Glory Hunters!`;
+        developerLink.style.display = 'block';
+        inputSection.style.display = 'none';
+        welcomeSection.style.display = 'flex';
+        menuStrip.style.display = 'flex';
+        return;
+      }
       const foundName = validNames.find(n => n.toLowerCase() === nameLower);
       if (foundName) {
         greeting.textContent = `Yey, ${foundName}! Kamu sekarang Glory Hunter sejati!`;
         adminLink.style.display = 'none';
+        developerLink.style.display = 'none';
         inputSection.style.display = 'none';
         welcomeSection.style.display = 'flex';
         menuStrip.style.display = 'flex';
       } else {
-        errorMsg.innerHTML = '<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f1ef4eb0-bc98-40e8-abe3-a25d141bd195.png" alt="Thinking face icon with tilted head and question mark, representing curiosity about not being recognized" class="inline-block mr-2" /> Hmm, ${name}, nama ini belum ada di daftar Glory, tapi tetap awesome! Coba lagi atau chat admin ya.';
+        errorMsg.innerHTML = '<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/873ad4fa-605e-415e-8fa1-c115759f8001.png" alt="Thinking face icon with tilted head and question mark, representing curiosity about not being recognized" class="inline-block mr-2" /> Hmm, ${name}, nama ini belum ada di daftar Glory, tapi tetap awesome! Coba lagi atau chat admin ya.';
         errorMsg.classList.remove('hidden');
         setTimeout(() => errorMsg.classList.add('hidden'), 5500);
       }
@@ -404,4 +435,4 @@
 </body>
 </html>
 </content>
-</create_file>
+          </create_file>
